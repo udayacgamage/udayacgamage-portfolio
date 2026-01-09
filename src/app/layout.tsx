@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Udaya Chathuranga - Portfolio",
-  description: "Personal Portfolio and Resume of Udaya Chathuranga",
+  title: {
+    default: "Udaya Chathuranga",
+    template: "%s | Udaya Chathuranga",
+  },
+  description:
+    "Udaya Chathuranga's personal portfolio — Software Developer from Sri Lanka. Frontend, Java, Networking, and Cyber Security interests.",
 };
 
 export default function RootLayout({

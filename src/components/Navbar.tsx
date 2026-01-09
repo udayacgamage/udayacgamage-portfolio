@@ -7,8 +7,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Portfolio
+            <Link href="/" className="flex items-center gap-3">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md shadow-sm">
+                <span className="text-sm font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  UC
+                </span>
+              </span>
+              <span className="leading-tight">
+                <span className="block text-sm font-semibold text-gray-900 dark:text-white">
+                  Udaya Chathuranga
+                </span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400">
+                  Portfolio
+                </span>
+              </span>
             </Link>
           </div>
           <div className="hidden md:block">
