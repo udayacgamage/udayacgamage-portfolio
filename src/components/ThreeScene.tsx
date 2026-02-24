@@ -10,7 +10,7 @@ import * as THREE from 'three';
 const StarField = memo(function StarField() {
   const ref = useRef<any>(null);
   const positions = useMemo(
-    () => random.inSphere(new Float32Array(1500 * 3), { radius: 1.4 }),
+    () => random.inSphere(new Float32Array(1500 * 3), { radius: 1.4 }) as Float32Array,
     []
   );
 
