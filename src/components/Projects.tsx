@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 const projects = [
   {
@@ -6,63 +9,112 @@ const projects = [
     description: 'A comprehensive management system for pool operations. Currently under active development.',
     link: 'https://github.com/udayacgamage/pool-management-system',
     tags: ['Active Development', 'Management System'],
+    status: 'In Progress',
   },
   {
     title: 'NIC Decoder',
     description: 'A dedicated tool to extract gender, birth year, and birth date from Sri Lankan National Identity Card numbers.',
     link: 'https://github.com/udayacgamage/NIC-decorder',
     tags: ['C#', 'Utility', 'Desktop App'],
+    status: 'Completed',
   },
   {
     title: 'Age Calculator',
     description: 'A simple yet effective GUI-based age calculator application built with C#.',
     link: 'https://github.com/udayacgamage/Age-Calculator',
     tags: ['C#', 'GUI', 'Windows'],
+    status: 'Completed',
   },
   {
     title: 'Maykas Holiday Home',
     description: 'A web-based project for a holiday home service.',
     link: 'https://github.com/udayacgamage/MaykasHolidayHome',
     tags: ['HTML', 'Web Design'],
+    status: 'Completed',
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-zinc-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center mb-12">
-          <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Projects</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            What I've Built
-          </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="flex flex-col overflow-hidden rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              <div className="flex-1 p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <div className="flex gap-2 mb-2">
-                     {project.tags.map(tag => (
-                        <span key={tag} className="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">
-                            {tag}
+    <LazyMotion features={domAnimation} strict>
+      <section id="projects" className="py-32 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <m.div
+            className="mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="text-sm font-medium tracking-[0.3em] uppercase text-indigo-400 mb-3">Portfolio</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white">
+              Featured Projects
+            </h2>
+          </m.div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects.map((project, i) => (
+              <m.a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
+                variants={cardVariants}
+                custom={i}
+              >
+                <div className="h-full rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 hover:bg-white/[0.04] hover:border-indigo-500/20 transition-all duration-500">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-1 text-xs font-medium text-indigo-300 bg-indigo-500/10 rounded-md"
+                        >
+                          {tag}
                         </span>
-                     ))}
+                      ))}
+                    </div>
+                    <svg className="w-5 h-5 text-gray-600 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
                   </div>
-                  <a href={project.link} className="block mt-2">
-                    <p className="text-xl font-semibold text-gray-900 dark:text-white">{project.title}</p>
-                    <p className="mt-3 text-base text-gray-500 dark:text-gray-400">{project.description}</p>
-                  </a>
+                  <h3 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300 mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                    <span className={`text-xs font-medium tracking-wide uppercase ${project.status === 'In Progress' ? 'text-amber-400' : 'text-emerald-400'}`}>
+                      {project.status === 'In Progress' && (
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 mr-2 animate-pulse" />
+                      )}
+                      {project.status === 'Completed' && (
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2" />
+                      )}
+                      {project.status}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </m.a>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
 };
 

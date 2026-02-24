@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Udaya Chathuranga",
+    default: "Udaya Chathuranga — Portfolio",
     template: "%s | Udaya Chathuranga",
   },
   description:
-    "Udaya Chathuranga's personal portfolio — Software Developer from Sri Lanka. Frontend, Java, Networking, and Cyber Security interests.",
+    "Udaya Chathuranga — Software Developer & Cyber Security enthusiast from Sri Lanka. BICT undergraduate at University of Sri Jayewardenepura.",
 };
 
 export default function RootLayout({
@@ -31,10 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-gray-100 bg-[#030712]`}
       >
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen relative z-10">
           {children}
         </main>
         <Footer />
