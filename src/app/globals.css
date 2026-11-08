@@ -240,11 +240,11 @@ h1 em,
   color: var(--muted);
 }
 .portrait-block {
-  transform: rotate(2deg);
+  transform: none;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .portrait-block:hover {
-  transform: rotate(0deg) scale(1.02);
+  transform: none;
 }
 .portrait-frame {
   position: relative;
@@ -254,6 +254,7 @@ h1 em,
   border-radius: 4px;
   box-shadow: 0 16px 42px rgba(32, 41, 35, 0.1);
   transition: box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: none;
 }
 .portrait-block:hover .portrait-frame {
   box-shadow: 0 24px 55px rgba(32, 41, 35, 0.16);
@@ -262,11 +263,13 @@ h1 em,
   object-fit: cover;
   object-position: center 30%;
   filter: saturate(0.6);
-  transition: filter 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 0.45s ease;
+  transform: none;
 }
-.portrait-block:hover .portrait {
+.portrait-block:hover .portrait,
+.portrait-frame:hover .portrait {
   filter: saturate(0.85);
-  transform: scale(1.03);
+  transform: none;
 }
 .portrait-marker {
   position: absolute;
