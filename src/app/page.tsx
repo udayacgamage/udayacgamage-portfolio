@@ -9,13 +9,13 @@ export default function Home() {
           ==================================================================== */}
       <section id="home" className="hero wrap pt-8 md:pt-14 pb-12">
         <div className="w-full">
-          {/* Eyebrow status row: Left dot + learning status, Right location */}
+          {/* Eyebrow status row: Location and undergraduate info */}
           <div className="hero-status-row">
             <span className="hero-status-badge">
               <span className="status-dot-green" aria-hidden="true" />
-              BUSY? NO I&apos;M JUST LEARNING
+              COLOMBO, SRI LANKA
             </span>
-            <span>COLOMBO, SRI LANKA</span>
+            <span>BICT UNDERGRADUATE · USJ</span>
           </div>
 
           {/* Main Name Heading: Bold modern sans */}
@@ -56,13 +56,13 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-4 flex justify-start md:justify-end">
-              <div className="portrait-frame">
+              <div className="portrait-frame w-full max-w-[270px] aspect-[4/5] relative rounded-lg overflow-hidden border border-[var(--line)] dark:border-[#262320]">
                 <Image
                   src="/profile.jpg"
                   alt="Udaya Chathuranga"
                   fill
                   priority
-                  sizes="(max-width:760px) 190px, 230px"
+                  sizes="(max-width:760px) 270px, 270px"
                   className="portrait object-cover"
                 />
                 <span className="portrait-marker">UC.</span>
