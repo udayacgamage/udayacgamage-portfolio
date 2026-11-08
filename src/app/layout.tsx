@@ -1,42 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: {
-    default: "Udaya Chathuranga — Portfolio",
-    template: "%s | Udaya Chathuranga",
-  },
+  metadataBase: new URL("https://udayacgamage-portfolio.vercel.app"),
+  title: "Udaya Chathuranga — Networking, Security & Development",
   description:
-    "Udaya Chathuranga — Software Developer & Cyber Security enthusiast from Sri Lanka. BICT undergraduate at University of Sri Jayewardenepura.",
+    "Udaya Chathuranga: network-focused developer and BICT undergraduate in Sri Lanka. Explore networking, IoT monitoring, Flutter and React Native mobile apps, and web projects.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Udaya Chathuranga — Networking, Security & Development",
+    description:
+      "Connected systems. Curiosity at work. Explore my networking, IoT, mobile, and web projects.",
+    type: "website",
+    images: [{ url: "/profile.jpg", alt: "Udaya Chathuranga" }],
+  },
+  twitter: { card: "summary", images: ["/profile.jpg"] },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-gray-100 bg-[#030712]`}
-      >
+    <html lang="en">
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         <Navbar />
-        <main className="min-h-screen relative z-10">
-          {children}
-        </main>
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>
