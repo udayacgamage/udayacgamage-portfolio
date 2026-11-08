@@ -69,7 +69,23 @@ p {
 h1,
 h2,
 h3 {
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 .wrap {
   width: min(1200px, calc(100% - 96px));
@@ -114,7 +130,23 @@ h3 {
   display: block;
   font-size: 8px;
   letter-spacing: 2.5px;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   margin-top: -3px;
 }
 .nav-links {
@@ -403,7 +435,23 @@ h1 em,
 .project-art strong {
   font-size: 28px;
   letter-spacing: -1px;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   position: relative;
   z-index: 2;
 }
@@ -633,7 +681,23 @@ h1 em,
 .about-facts strong {
   display: block;
   font-size: 12px;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   margin-top: 9px;
   line-height: 1.6;
 }
@@ -1006,7 +1070,23 @@ h1 em,
 .network-flow strong {
   display: block;
   font-size: 12px;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 .network-flow small {
   display: block;
@@ -1543,6 +1623,11 @@ h1 em,
   }
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
 .nav-controls {
   display: flex;
   align-items: center;
@@ -1577,7 +1662,23 @@ h1 em,
   font-size: 9px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+em,
+.font-serif,
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow,
+.font-mono,
+.mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 [data-theme="dark"] body {
@@ -1785,4 +1886,57 @@ h1 em,
 .minimal-skill-list span:hover {
   transform: translateX(6px);
   color: var(--accent);
+}
+
+/* Ensure site-header is dark in dark mode and default */
+[data-theme="dark"] .site-header,
+:root:not([data-theme="light"]) .site-header {
+  background: rgba(19, 17, 16, 0.94) !important;
+  border-bottom: 1px solid #262320 !important;
+}
+
+[data-theme="dark"] .wordmark,
+:root:not([data-theme="light"]) .wordmark {
+  color: #ede9e3;
+}
+
+[data-theme="dark"] .wordmark small,
+:root:not([data-theme="light"]) .wordmark small {
+  color: #8e887f;
+}
+
+[data-theme="dark"] .nav-links a,
+:root:not([data-theme="light"]) .nav-links a {
+  color: #8e887f;
+}
+
+[data-theme="dark"] .nav-links a:hover,
+:root:not([data-theme="light"]) .nav-links a:hover,
+[data-theme="dark"] .nav-links a.active,
+:root:not([data-theme="light"]) .nav-links a.active {
+  color: #95b888;
+}
+
+[data-theme="dark"] .nav-links a:last-child,
+:root:not([data-theme="light"]) .nav-links a:last-child {
+  border-color: #262320;
+  color: #ede9e3;
+}
+
+[data-theme="dark"] .nav-links a:last-child:hover,
+:root:not([data-theme="light"]) .nav-links a:last-child:hover {
+  border-color: #95b888;
+}
+
+[data-theme="dark"] .theme-toggle-btn,
+:root:not([data-theme="light"]) .theme-toggle-btn {
+  border-color: #262320;
+  color: #8e887f;
+  background: rgba(25, 22, 20, 0.6);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover,
+:root:not([data-theme="light"]) .theme-toggle-btn:hover {
+  border-color: #38332e;
+  color: #ede9e3;
 }
