@@ -66,35 +66,37 @@ export default function Navbar() {
           <small>CHATHURANGA</small>
         </a>
 
-        <div className="nav-controls">
-          <ThemeToggle />
+        <div className="nav-right">
+          <div id="nav-links" className={`nav-links ${open ? "is-open" : ""}`}>
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  href={item.href}
+                  key={item.href}
+                  onClick={() => setOpen(false)}
+                  className={isActive ? "active" : ""}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
 
-          <button
-            className="menu-toggle"
-            aria-expanded={open}
-            aria-controls="nav-links"
-            onClick={() => setOpen(!open)}
-            type="button"
-          >
-            {open ? "Close −" : "Menu +"}
-          </button>
-        </div>
+          <div className="nav-controls">
+            <ThemeToggle />
 
-        <div id="nav-links" className={`nav-links ${open ? "is-open" : ""}`}>
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeSection === item.id;
-            return (
-              <a
-                href={item.href}
-                key={item.href}
-                onClick={() => setOpen(false)}
-                className={isActive ? "active" : ""}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+            <button
+              className="menu-toggle"
+              aria-expanded={open}
+              aria-controls="nav-links"
+              onClick={() => setOpen(!open)}
+              type="button"
+            >
+              {open ? "Close −" : "Menu +"}
+            </button>
+          </div>
         </div>
       </nav>
     </header>
