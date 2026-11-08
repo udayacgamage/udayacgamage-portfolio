@@ -1,176 +1,237 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { useState } from "react";
 
-const Contact = () => {
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
+
+  const emailAddress = "udayacgamage@gmail.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Fallback
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, message } = formData;
-    const subject = `Portfolio Contact from ${name}`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    window.location.href = `mailto:udayacgamage@gmail.com?subject=${subject}&body=${body}`;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const mailSubject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name || "Portfolio Visitor"}`);
+    const mailBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${emailAddress}?subject=${mailSubject}&body=${mailBody}`;
   };
 
   return (
-    <LazyMotion features={domAnimation} strict>
-      <section id="contact" className="py-32 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <m.div
-            className="mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="text-sm font-medium tracking-[0.3em] uppercase text-indigo-400 mb-3">Contact</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white">
-              Let&apos;s Connect
-            </h2>
-          </m.div>
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-indigo-950/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact info */}
-            <m.div
-              className="lg:col-span-2 space-y-8"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Have a question or want to collaborate? Feel free to reach out. I&apos;m always open to new opportunities and interesting conversations.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              05 / Get In Touch
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+              Let&apos;s build together.
+            </h2>
+          </div>
+          <p className="text-slate-400 text-sm sm:text-base max-w-md">
+            Whether for a project collaboration, technical discussion, or network engineering opportunity.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          {/* Left Column: Direct Info & Copy Button */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Quick Email Copy Card */}
+            <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+              <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider block mb-2">
+                DIRECT INBOX
+              </span>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Start a conversation
+              </h3>
+              <p className="text-xs text-slate-300 mb-6 leading-relaxed">
+                Reach out directly via email. I typically respond within 24 hours.
               </p>
 
-              <div className="space-y-5">
-                <a
-                  href="mailto:udayacgamage@gmail.com"
-                  className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group"
+              {/* Copy pill */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 p-2 rounded-xl bg-slate-950/80 border border-white/10">
+                <span className="px-3 py-1 font-mono text-xs sm:text-sm text-slate-200 select-all truncate">
+                  {emailAddress}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="sm:ml-auto px-4 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-semibold font-mono transition-all flex items-center justify-center gap-1.5"
                 >
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.06] group-hover:border-indigo-500/30 group-hover:bg-indigo-500/5 transition-all duration-300">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
-                  </div>
-                  <span className="text-sm">udayacgamage@gmail.com</span>
-                </a>
-
-                <div className="flex items-center gap-4 text-gray-400">
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
-                  </div>
-                  <span className="text-sm">Sri Lanka</span>
-                </div>
+                  {copied ? (
+                    <>
+                      <span className="text-emerald-400">✓</span>
+                      <span className="text-emerald-400">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                      <span>Copy Address</span>
+                    </>
+                  )}
+                </button>
               </div>
+            </div>
 
-              {/* Social Links */}
-              <div className="pt-6 border-t border-white/[0.06]">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-4">Follow Me</p>
-                <div className="flex gap-3">
-                  <a
-                    href="https://github.com/udayacgamage"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/udaya-chathuranga/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" /></svg>
-                  </a>
+            {/* Social channels */}
+            <div className="grid grid-cols-2 gap-4">
+              <a
+                href="https://www.linkedin.com/in/udaya-chathuranga/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-panel glass-panel-hover p-4 rounded-xl border border-white/10 flex items-center gap-3 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                  <span className="font-bold text-xs font-mono">in</span>
                 </div>
-              </div>
-            </m.div>
+                <div>
+                  <span className="text-xs font-semibold text-white block group-hover:text-indigo-300 transition-colors">
+                    LinkedIn
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-mono">udaya-chathuranga ↗</span>
+                </div>
+              </a>
 
-            {/* Contact form */}
-            <m.form
+              <a
+                href="https://github.com/udayacgamage"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-panel glass-panel-hover p-4 rounded-xl border border-white/10 flex items-center gap-3 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-white block group-hover:text-cyan-300 transition-colors">
+                    GitHub
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-mono">udayacgamage ↗</span>
+                </div>
+              </a>
+            </div>
+
+            {/* University Tag */}
+            <div className="p-4 rounded-xl bg-slate-900/50 border border-white/5 text-xs text-slate-400">
+              <span className="text-slate-300 font-medium">Undergraduate BICT Program</span>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Faculty of Technology, University of Sri Jayewardenepura
+              </p>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive Quick Dispatch Form */}
+          <div className="lg:col-span-7">
+            <form
               onSubmit={handleSubmit}
-              className="lg:col-span-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 space-y-6"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10 space-y-4"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <h3 className="text-lg font-bold text-white mb-2">
+                Send a direct message
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-medium tracking-wider uppercase text-gray-500 mb-2">
-                    Name
+                  <label htmlFor="name" className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
+                    Your Name
                   </label>
                   <input
-                    type="text"
-                    name="name"
                     id="name"
+                    type="text"
                     required
+                    placeholder="Alex Morgan"
                     value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 transition-all placeholder-gray-600"
-                    placeholder="John Doe"
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="block text-xs font-medium tracking-wider uppercase text-gray-500 mb-2">
-                    Email
+                  <label htmlFor="email" className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
+                    Your Email
                   </label>
                   <input
-                    type="email"
-                    name="email"
                     id="email"
+                    type="email"
                     required
+                    placeholder="alex@example.com"
                     value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 transition-all placeholder-gray-600"
-                    placeholder="john@example.com"
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
                   />
                 </div>
               </div>
+
               <div>
-                <label htmlFor="message" className="block text-xs font-medium tracking-wider uppercase text-gray-500 mb-2">
+                <label htmlFor="subject" className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
+                  Subject / Topic
+                </label>
+                <input
+                  id="subject"
+                  type="text"
+                  placeholder="Collaboration / Project / Question"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-400 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
                   Message
                 </label>
                 <textarea
-                  name="message"
                   id="message"
-                  rows={5}
                   required
+                  rows={4}
+                  placeholder="Share a brief overview of what you have in mind..."
                   value={formData.message}
-                  onChange={handleChange}
-                  className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 transition-all placeholder-gray-600 resize-none"
-                  placeholder="Tell me about your project..."
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                 />
               </div>
+
               <button
                 type="submit"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 text-sm tracking-wide"
+                className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-semibold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
               >
-                Send Message
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <span>Send Message</span>
+                <span className="font-mono text-sm leading-none">↗</span>
               </button>
-            </m.form>
+            </form>
           </div>
-        </div>
-      </section>
-    </LazyMotion>
-  );
-};
 
-export default Contact;
+        </div>
+
+      </div>
+    </section>
+  );
+}

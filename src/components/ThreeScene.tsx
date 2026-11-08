@@ -8,7 +8,7 @@ import * as THREE from 'three';
 
 /* ── Particles ── reduced to 1500, smaller radius ── */
 const StarField = memo(function StarField() {
-  const ref = useRef<any>(null);
+  const ref = useRef<THREE.Points>(null);
   const positions = useMemo(
     () => random.inSphere(new Float32Array(1500 * 3), { radius: 1.4 }) as Float32Array,
     []
