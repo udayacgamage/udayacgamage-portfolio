@@ -87,9 +87,14 @@ export default function Projects() {
   );
   return (
     <section id="projects" className="section wrap">
+      <div className="section-divider" aria-hidden="true">
+        <span className="section-divider-num">03</span>
+        <span className="section-divider-title">SELECTED WORK</span>
+        <span className="section-divider-line" />
+      </div>
+
       <div className="section-heading">
         <div>
-          <p className="eyebrow">02 / SELECTED WORK</p>
           <h2>Featured Projects</h2>
         </div>
         <a
@@ -113,59 +118,37 @@ export default function Projects() {
             aria-pressed={filter === item}
             className={filter === item ? "active" : ""}
             onClick={() => setFilter(item)}
+            type="button"
           >
             {item}
-            {item === "All projects" && (
-              <span>{String(projects.length).padStart(2, "0")}</span>
-            )}
           </button>
         ))}
       </div>
-      <p className="sr-only" aria-live="polite">
-        Showing {visible.length} projects
-      </p>
       <div className="project-grid">
         {visible.map((p) => (
-          <article className="project" key={p.repo}>
-            <a
-              className={`project-art ${p.theme}`}
-              href={`https://github.com/udayacgamage/${p.repo}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Explore ${p.name} source on GitHub`}
-            >
-              <span className="art-label">{p.type}</span>
-              <div className="project-graphic" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
-              <strong>{p.mark}</strong>
-              <span className="art-detail">{p.detail}</span>
-              <span className="project-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </a>
-            <div className="project-info">
-              <div className="project-title">
-                <h3>
-                  <a
-                    href={`https://github.com/udayacgamage/${p.repo}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {p.name}
-                  </a>
-                </h3>
-                <span>{p.category}</span>
-              </div>
+          <article className="project-card" key={p.name}>
+            <div className={`project-art theme-${p.theme}`}>
+              <span className="project-mark">{p.mark}</span>
+              <strong>{p.name}</strong>
+              <small>{p.detail}</small>
+            </div>
+            <div className="project-body">
+              <span className="eyebrow">{p.type}</span>
+              <h3>{p.name}</h3>
               <p>{p.description}</p>
               <div className="tags">
                 {p.tags.map((t) => (
                   <span key={t}>{t}</span>
                 ))}
               </div>
+              <a
+                className="text-link"
+                href={`https://github.com/udayacgamage/${p.repo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Repository ↗
+              </a>
             </div>
           </article>
         ))}
