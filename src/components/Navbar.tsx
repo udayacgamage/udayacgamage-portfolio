@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV_ITEMS = [
   { label: "Networking", href: "#networking", id: "networking" },
@@ -64,14 +65,21 @@ export default function Navbar() {
           udaya<span>.</span>
           <small>CHATHURANGA</small>
         </a>
-        <button
-          className="menu-toggle"
-          aria-expanded={open}
-          aria-controls="nav-links"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? "Close −" : "Menu +"}
-        </button>
+
+        <div className="nav-controls">
+          <ThemeToggle />
+
+          <button
+            className="menu-toggle"
+            aria-expanded={open}
+            aria-controls="nav-links"
+            onClick={() => setOpen(!open)}
+            type="button"
+          >
+            {open ? "Close −" : "Menu +"}
+          </button>
+        </div>
+
         <div id="nav-links" className={`nav-links ${open ? "is-open" : ""}`}>
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
