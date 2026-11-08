@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://udayacgamage-portfolio.vercel.app"),
+  metadataBase: new URL("https://udayacgamage.dev"),
   title: "Udaya Chathuranga — Networking, Security & Development",
   description:
     "Udaya Chathuranga — BICT undergraduate at the University of Sri Jayewardenepura focusing on network engineering, cyber security, IoT telemetry, and software development.",
