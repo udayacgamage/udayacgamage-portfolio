@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://udayacgamage-portfolio.vercel.app"),
   title: "Udaya Chathuranga — Networking, Security & Development",
   description:
-    "Udaya Chathuranga: network-focused developer and BICT undergraduate in Sri Lanka. Explore networking, IoT monitoring, Flutter and React Native mobile apps, and web projects.",
+    "Udaya Chathuranga — BICT undergraduate at the University of Sri Jayewardenepura focusing on network engineering, cyber security, IoT telemetry, and software development.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Udaya Chathuranga — Networking, Security & Development",
     description:
-      "Connected systems. Curiosity at work. Explore my networking, IoT, mobile, and web projects.",
+      "Network engineering, IoT telemetry pipelines, and software development portfolio of Udaya Chathuranga.",
     type: "website",
     images: [{ url: "/profile.jpg", alt: "Udaya Chathuranga" }],
   },

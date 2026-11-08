@@ -1,80 +1,82 @@
 "use client";
 import { useState } from "react";
+
 const projects = [
   {
     name: "Cloudpath",
     category: "Networking & IoT",
-    type: "NETWORKING & CLOUD LEARNING",
+    type: "NETWORKING & SIMULATION",
     description:
-      "Visual lessons and guided simulated labs for topics including wireless communication, routing, and cloud infrastructure, with locally saved learning progress.",
-    tags: ["Networking", "Cloud concepts", "JavaScript", "Simulated labs"],
+      "Interactive visual lessons and simulated network labs covering packet routing, IP subnetting, and cloud infrastructure with local progress tracking.",
+    tags: ["Networking", "Routing", "JavaScript", "Simulated labs"],
     repo: "cloud-path",
     theme: "cloud",
-    mark: "Understand the connection.",
-    detail: "EXPLORE. PRACTISE. CONNECT THE DOTS.",
+    mark: "Network Simulation",
+    detail: "PACKET ROUTING & TOPOLOGY LABS",
   },
   {
     name: "BridgeM",
     category: "Networking & IoT",
     additionalCategory: "Mobile applications",
-    type: "MOBILE IOT MONITORING",
+    type: "IOT TELEMETRY DASHBOARD",
     description:
-      "A React Native mobile dashboard using MQTT over WebSockets to receive bridge telemetry: load, vehicle counts, vibration, safety alerts, and barrier status.",
+      "A React Native mobile application displaying real-time bridge sensor telemetry (load, vibration, vehicle counts, and alerts) streamed over MQTT and WebSockets.",
     tags: ["MQTT", "WebSockets", "React Native", "Expo"],
     repo: "IOT-bridge-app",
     theme: "bridge",
-    mark: "Connected. In view.",
-    detail: "FROM SENSOR TO SCREEN.",
+    mark: "Structural IoT Monitor",
+    detail: "REAL-TIME TELEMETRY STREAM",
   },
   {
     name: "UCHAT",
     category: "Mobile applications",
     type: "FLUTTER MESSAGING APP",
     description:
-      "A Flutter messaging project with Firebase-backed direct and group conversations, read receipts, typing indicators, media sharing, and authentication.",
+      "A cross-platform mobile chat application featuring real-time 1-on-1 and group messaging, typing indicators, read receipts, and media attachments via Firebase.",
     tags: ["Flutter", "Dart", "Firebase", "Riverpod"],
     repo: "UCHAT-app",
     theme: "chat",
-    mark: "A conversation, connected.",
-    detail: "DIRECT MESSAGES. GROUP CONVERSATIONS.",
+    mark: "Real-Time Chat",
+    detail: "DIRECT & GROUP MESSAGING",
   },
   {
     name: "Frame",
     category: "Mobile applications",
     type: "REACT NATIVE SOCIAL APP",
     description:
-      "A mobile social app built with Expo and Supabase, with a post feed, shared stories, likes, bookmarks, comments, and creative community screens.",
+      "A mobile photo-sharing app built with Expo and Supabase, featuring chronological media feeds, user stories, bookmarking, and post interactions.",
     tags: ["React Native", "Expo", "TypeScript", "Supabase"],
     repo: "Frame-social-media-app",
     theme: "frame",
-    mark: "Make room for creativity.",
-    detail: "SHARE YOUR WORLD. FIND YOUR PEOPLE.",
+    mark: "Media Sharing App",
+    detail: "COMMUNITY POST FEEDS & STORIES",
   },
   {
     name: "LensLoop",
     category: "Web applications",
-    type: "EQUIPMENT RENTAL PLATFORM",
+    type: "EQUIPMENT LOGISTICS",
     description:
-      "A camera and production gear rental platform with inventory tracking, equipment compatibility checks, checkout holds, and QR handovers.",
+      "A camera equipment rental platform with real-time inventory management, rental period reservations, gear compatibility checks, and QR code handovers.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
     repo: "lens-loop",
     theme: "lens",
-    mark: "lensloop",
-    detail: "THE RIGHT GEAR. THE NEXT GREAT STORY.",
+    mark: "Equipment Logistics",
+    detail: "INVENTORY TRACKING & QR HANDOVERS",
   },
   {
     name: "USJ Pool Management",
     category: "Web applications",
     type: "UNIVERSITY OPERATIONS",
     description:
-      "A full-stack platform connecting student bookings, QR-based attendance, coach schedules, and automated email notifications.",
+      "A web management system for the university swimming pool, coordinating lane reservations, coach schedules, and student attendance via QR code verification.",
     tags: ["React", "Node.js", "Express", "MongoDB"],
     repo: "pool-management-system",
     theme: "pool",
-    mark: "Dive into simplicity.",
-    detail: "BOOK. SCAN. SWIM.",
+    mark: "Operations Platform",
+    detail: "BOOKING & QR ATTENDANCE",
   },
 ];
+
 export default function Projects() {
   const [filter, setFilter] = useState("All projects");
   const visible = projects.filter(
@@ -88,7 +90,7 @@ export default function Projects() {
       <div className="section-heading">
         <div>
           <p className="eyebrow">02 / SELECTED WORK</p>
-          <h2>Networks, mobile & beyond.</h2>
+          <h2>Featured Projects</h2>
         </div>
         <a
           className="text-link"

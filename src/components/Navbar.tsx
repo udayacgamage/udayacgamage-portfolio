@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
@@ -22,8 +23,8 @@ export default function Navbar() {
             ["Networking", "#networking"],
             ["Work", "#projects"],
             ["About", "#about"],
-            ["Toolkit", "#skills"],
-            ["Let’s connect ↗", "#contact"],
+            ["Skills", "#skills"],
+            ["Contact ↗", "#contact"],
           ].map(([label, href]) => (
             <a href={href} key={href} onClick={() => setOpen(false)}>
               {label}
