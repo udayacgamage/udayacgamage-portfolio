@@ -1,134 +1,110 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
+import { LazyMotion, domAnimation, m, type Variants } from 'framer-motion';
 
-export default function About() {
-  const academicFacts = [
-    { label: "DEGREE", value: "BICT (Hons) Undergraduate", detail: "Information & Communication Technology" },
-    { label: "INSTITUTION", value: "Univ. of Sri Jayewardenepura", detail: "Faculty of Technology" },
-    { label: "CORE INTERESTS", value: "Networks & Cyber Security", detail: "IoT, Telemetry, Linux, Protocols" },
-    { label: "LOCATION", value: "Colombo, Sri Lanka", detail: "Open to local & international opportunities" },
-  ];
+const stats = [
+  { label: 'University', value: 'USJ' },
+  { label: 'Degree', value: 'BICT' },
+  { label: 'Focus', value: 'Cyber Security' },
+  { label: 'Location', value: 'Sri Lanka' },
+];
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: 'easeOut' },
+  }),
+};
+
+const About = () => {
   return (
-    <section id="about" className="py-24 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/[0.08] pb-8">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-blue-400 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              04 / Background &amp; Education
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              About &amp; Academic Foundation
+    <LazyMotion features={domAnimation} strict>
+      <section id="about" className="py-32 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section header */}
+          <m.div
+            className="mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <p className="text-sm font-medium tracking-[0.3em] uppercase text-indigo-400 mb-3">About</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white">
+              Who I Am
             </h2>
-          </div>
-          <p className="text-slate-400 text-sm max-w-md leading-relaxed">
-            Combining academic rigor with hands-on systems development.
-          </p>
-        </div>
+          </m.div>
 
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left: Bio & Details */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="pro-card p-6 sm:p-8 space-y-5">
-              <h3 className="text-xl font-bold text-white">
-                Engineering with clarity and intent.
-              </h3>
-              
-              <p className="text-sm text-slate-300 leading-relaxed">
-                I am a BICT undergraduate at the <strong className="text-white font-medium">University of Sri Jayewardenepura</strong>, focusing on the intersection of network engineering, system security, and software applications.
-              </p>
-
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Rather than treating network infrastructure as an abstract layer, I design software with an awareness of latency, socket lifecycles, and security boundaries. My projects range from an MQTT-connected bridge telemetry system to interactive visual routing simulations and cross-platform mobile apps.
-              </p>
-
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Outside of coursework and codebases, I actively engage with cyber security competitions (CTF), explore Linux system administration, and follow developments in distributed systems.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://www.linkedin.com/in/udaya-chathuranga/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors"
-                >
-                  Connect on LinkedIn ↗
-                </a>
-                <a
-                  href="https://github.com/udayacgamage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-white/10 text-slate-300 hover:text-white text-xs font-medium transition-colors"
-                >
-                  Explore GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            {/* Academic Fact Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {academicFacts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="p-4 rounded-xl pro-card border border-white/5"
-                >
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">
-                    {fact.label}
-                  </span>
-                  <strong className="text-sm text-white font-semibold block mt-1">
-                    {fact.value}
-                  </strong>
-                  <span className="text-xs text-slate-400 block mt-0.5">
-                    {fact.detail}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-          </div>
-
-          {/* Right: Portrait Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-sm rounded-2xl pro-card p-4">
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-white/10 bg-slate-950">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            {/* Photo */}
+            <m.div
+              className="lg:col-span-4"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-white/10 group">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent z-10" />
                 <Image
                   src="/profile.jpg"
                   alt="Udaya Chathuranga"
                   fill
-                  sizes="(max-width: 768px) 100vw, 360px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-[11px] font-mono text-blue-400 uppercase tracking-wider">
-                    Candidate Profile
-                  </p>
-                  <h4 className="text-lg font-bold text-white">
-                    Udaya Chathuranga
-                  </h4>
-                  <p className="text-xs text-slate-300 mt-0.5">
-                    BICT (Hons) Undergraduate • USJ
-                  </p>
-                </div>
+              </div>
+            </m.div>
+
+            {/* Content */}
+            <m.div
+              className="lg:col-span-8 space-y-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="text-lg text-gray-300 leading-relaxed">
+                My journey through the tech landscape is less about ticking boxes and more about chasing ideas that matter. Each line of code I write, every concept I explore, is powered by an insatiable curiosity and the desire to build solutions that spark change.
+              </p>
+              <p className="text-lg text-gray-400 leading-relaxed">
+                Currently diving deep into projects that challenge what I know and push me to learn more. From crafting responsive web apps with React and Tailwind CSS, to building dynamic backends with Python and Node.js — I love bringing ideas to life through modern tech stacks.
+              </p>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-white/10">
+                {stats.map((stat, i) => (
+                  <m.div
+                    key={stat.label}
+                    className="text-center sm:text-left"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    custom={i + 2}
+                  >
+                    <p className="text-2xl font-bold text-white">{stat.value}</p>
+                    <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+                  </m.div>
+                ))}
               </div>
 
-              <div className="mt-4 p-3 rounded-xl bg-slate-950/60 border border-white/5 text-xs text-slate-300">
-                Focus: Network Administration, Cyber Security &amp; Full-Stack Development
+              <div className="p-5 rounded-xl bg-indigo-500/5 border border-indigo-500/20">
+                <p className="text-indigo-300 font-medium text-sm leading-relaxed">
+                  I have a strong interest in Cyber Security and Network Administration, constantly exploring new ways to secure and optimize digital infrastructure.
+                </p>
               </div>
-            </div>
+            </m.div>
           </div>
-
         </div>
-
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
-}
+};
+
+export default About;
