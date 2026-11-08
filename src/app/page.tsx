@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Projects from "@/components/Projects";
+
 export default function Home() {
   return (
     <>
@@ -7,29 +8,29 @@ export default function Home() {
         <div>
           <p className="eyebrow">● NETWORKING · CYBER SECURITY · SRI LANKA</p>
           <h1>
-            Connected systems.
+            Network engineering &amp;
             <br />
-            <em>Curiosity at work.</em>
+            <em>software development.</em>
           </h1>
           <p className="intro">
-            I’m Udaya Chathuranga, a network-focused developer exploring how
-            devices communicate, services connect, and systems stay secure.
+            I’m Udaya Chathuranga, an Information and Communication Technology
+            undergraduate at the University of Sri Jayewardenepura.
           </p>
           <p className="description">
-            Networking and cyber security drive my learning. I put that
-            curiosity into practice through IoT monitoring, network learning
-            tools, and mobile applications.
+            I build software around networking protocols, IoT telemetry
+            pipelines, and mobile applications using Flutter, React Native,
+            and Node.js.
           </p>
           <div className="actions">
             <a className="button" href="#projects">
-              Explore my work ↗
+              View Projects ↗
             </a>
             <a className="text-link" href="mailto:udayacgamage@gmail.com">
-              Let’s talk ↗
+              Email Me ↗
             </a>
           </div>
           <div className="hero-note">
-            BASED IN SRI LANKA <span>BUILDING WITH CURIOSITY</span>
+            COLOMBO, SRI LANKA <span>BICT UNDERGRADUATE · USJ</span>
           </div>
         </div>
         <div className="portrait-block">
@@ -46,65 +47,67 @@ export default function Home() {
           </div>
           <div className="portrait-caption">
             <span>Udaya Chathuranga</span>
-            <span>Networks, systems & software ↗</span>
+            <span>Networks, IoT &amp; Software</span>
           </div>
         </div>
       </section>
+
       <div className="expertise-strip">
         <div className="wrap">
-          <span>NETWORKING</span>
+          <span>NETWORK ENGINEERING</span>
           <i>✳</i>
           <span>CYBER SECURITY</span>
           <i>✳</i>
-          <span>CONNECTED SYSTEMS</span>
+          <span>IOT &amp; TELEMETRY</span>
           <i>✳</i>
-          <span>MOBILE DEVELOPMENT</span>
+          <span>MOBILE &amp; WEB</span>
         </div>
       </div>
+
       <section id="networking" className="section wrap network-focus">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / NETWORKS & CONNECTED SYSTEMS</p>
-            <h2>Beyond the interface.</h2>
+            <p className="eyebrow">01 / NETWORKS &amp; IOT</p>
+            <h2>Telemetry pipelines &amp; protocols.</h2>
           </div>
           <p>
-            Understanding the connections
+            Transport protocols, message brokers,
             <br />
-            that make software work.
+            and real-time monitoring systems.
           </p>
         </div>
         <div className="network-layout">
           <div className="network-topology">
-            <p className="eyebrow">BRIDGEM / COMMUNICATION FLOW</p>
+            <p className="eyebrow">BRIDGEM / ARCHITECTURE</p>
             <div
               className="network-flow"
               aria-label="Sensor data travels through an MQTT broker over WebSockets to a mobile dashboard"
             >
               <div>
                 <span aria-hidden="true">◉</span>
-                <strong>Sensor data</strong>
-                <small>Bridge measurements</small>
+                <strong>Bridge Sensors</strong>
+                <small>Strain &amp; vibration data</small>
               </div>
               <span className="flow-link" aria-hidden="true">
                 →
               </span>
               <div>
                 <span aria-hidden="true">⌘</span>
-                <strong>MQTT broker</strong>
-                <small>Publish / subscribe</small>
+                <strong>MQTT Broker</strong>
+                <small>Mosquitto / QoS 1</small>
               </div>
               <span className="flow-link" aria-hidden="true">
                 →
               </span>
               <div>
                 <span aria-hidden="true">▥</span>
-                <strong>Mobile dashboard</strong>
-                <small>WebSocket connection</small>
+                <strong>Mobile App</strong>
+                <small>React Native (WebSocket)</small>
               </div>
             </div>
             <p className="network-caption">
-              Connecting bridge telemetry with a mobile view of load, vibration,
-              and safety status.
+              End-to-end telemetry pipeline streaming bridge load, vibration
+              frequencies, and structural alerts to maintenance teams.
             </p>
             <a
               className="text-link"
@@ -112,62 +115,65 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Explore BridgeM ↗
+              View BridgeM on GitHub ↗
             </a>
           </div>
           <div className="network-interests">
             <div>
-              <span className="eyebrow">EXPLORING / NETWORKING</span>
-              <h3>How systems communicate</h3>
+              <span className="eyebrow">ROUTING &amp; SIMULATION</span>
+              <h3>Interactive network labs</h3>
               <p>
-                Wireless communication, routing concepts, and network
-                infrastructure are central to my learning. Cloudpath brings
-                these topics into visual lessons and simulated labs.
+                Developing Cloudpath to help students visualize packet routing,
+                CIDR subnetting, and ARP resolution through in-browser simulated
+                labs.
               </p>
             </div>
             <div>
-              <span className="eyebrow">EXPLORING / SECURITY & OPERATIONS</span>
-              <h3>What keeps them dependable</h3>
+              <span className="eyebrow">SYSTEMS &amp; SECURITY</span>
+              <h3>Linux &amp; infrastructure</h3>
               <p>
-                I’m developing my understanding of cyber security, Linux, cloud
-                infrastructure, and DevOps alongside hands-on software projects.
+                Working with Linux server environments, Docker containerization,
+                and transport security (TLS) for resilient client-server
+                communication.
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <Projects />
+
       <section id="about" className="about section wrap">
         <div>
-          <p className="eyebrow">03 / ABOUT ME</p>
+          <p className="eyebrow">03 / BACKGROUND</p>
           <h2>
-            Networks first.
+            Engineering foundation,
             <br />
-            <em>A builder’s mindset.</em>
+            <em>practical execution.</em>
           </h2>
         </div>
         <div className="about-copy">
           <p>
             I’m a BICT undergraduate at the University of Sri Jayewardenepura,
-            with a particular interest in network engineering, cyber security,
-            and the infrastructure behind connected applications.
+            specializing in network engineering, systems administration, and
+            application development.
           </p>
           <p>
-            I learn by building: an MQTT-connected monitoring app, visual
-            networking lessons, mobile messaging, and full-stack platforms.
-            Working across these layers helps me connect network concepts with
-            the applications that depend on them.
+            My projects focus on connecting hardware and distributed services:
+            MQTT telemetry for bridge sensors, cross-platform mobile apps using
+            Flutter and React Native, and full-stack web platforms backed by
+            PostgreSQL and MongoDB.
           </p>
           <div className="about-facts">
             <div>
-              <span>EDUCATION</span>
+              <span>UNIVERSITY</span>
               <strong>University of Sri Jayewardenepura</strong>
-              <p>BICT undergraduate</p>
+              <p>Bachelor of Information and Communication Technology</p>
             </div>
             <div>
-              <span>CURRENT INTERESTS</span>
-              <strong>Networks, security & DevOps</strong>
-              <p>Always learning, always building.</p>
+              <span>TECHNICAL FOCUS</span>
+              <strong>Networks, Security &amp; Systems</strong>
+              <p>Routing protocols, Linux, and cloud infrastructure.</p>
             </div>
           </div>
           <a
@@ -176,38 +182,39 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Connect on LinkedIn ↗
+            LinkedIn Profile ↗
           </a>
         </div>
       </section>
+
       <section id="skills" className="section wrap">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">04 / THE TOOLKIT</p>
-            <h2>From infrastructure to apps.</h2>
+            <p className="eyebrow">04 / TECHNICAL SKILLS</p>
+            <h2>Languages, tools &amp; protocols.</h2>
           </div>
           <p>
-            A practical stack, shaped by
+            Technologies applied across
             <br />
-            the problem at hand.
+            academic and personal projects.
           </p>
         </div>
         <div className="skill-grid">
           {[
             [
               "01",
-              "Networks & infrastructure",
-              "MQTT & WebSockets in BridgeM. Exploring Linux, AWS, Docker, networking, and cyber security.",
+              "Networking & infrastructure",
+              "MQTT, WebSockets, TCP/IP, Wireshark, Linux administration, Docker, and AWS basics.",
             ],
             [
               "02",
               "Mobile development",
-              "Flutter, Dart, Firebase, React Native, Expo & TypeScript",
+              "Flutter, Dart, React Native, Expo, TypeScript, and Firebase.",
             ],
             [
               "03",
-              "Web, backend & workflow",
-              "React, Next.js, Node.js, Express, PostgreSQL, MongoDB, Git & Postman",
+              "Web & databases",
+              "Next.js, React, Node.js, Express, PostgreSQL, MongoDB, Prisma, Git, and Postman.",
             ],
           ].map(([n, title, detail]) => (
             <div className="skill" key={n}>
@@ -218,19 +225,16 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       <section id="contact" className="contact">
         <div className="wrap contact-inner">
-          <p className="eyebrow">05 / START A CONVERSATION</p>
-          <h2>
-            Have something
-            <br />
-            in mind? <em>Let’s build it.</em>
-          </h2>
+          <p className="eyebrow">05 / CONTACT</p>
+          <h2>Get in touch.</h2>
           <div className="contact-bottom">
             <p>
-              For a project, a collaboration,
+              Open to software and network engineering roles, internships,
               <br />
-              or a conversation about networks and technology.
+              and technical collaborations.
             </p>
             <a className="contact-email" href="mailto:udayacgamage@gmail.com">
               udayacgamage@gmail.com ↗
