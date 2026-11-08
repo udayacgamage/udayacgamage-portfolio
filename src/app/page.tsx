@@ -1,10 +1,5 @@
 import Image from "next/image";
 import Projects from "@/components/Projects";
-import NetworkFlowSimulator from "@/components/NetworkFlowSimulator";
-import InteractiveSkills from "@/components/InteractiveSkills";
-import InteractiveTerminal from "@/components/InteractiveTerminal";
-import CopyEmailButton from "@/components/CopyEmailButton";
-
 export default function Home() {
   return (
     <>
@@ -29,12 +24,6 @@ export default function Home() {
             <a className="button" href="#projects">
               Explore my work ↗
             </a>
-            <CopyEmailButton
-              email="udayacgamage@gmail.com"
-              className="copy-hero-btn"
-            >
-              <span>Copy Email ⧉</span>
-            </CopyEmailButton>
             <a className="text-link" href="mailto:udayacgamage@gmail.com">
               Let’s talk ↗
             </a>
@@ -61,7 +50,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <div className="expertise-strip">
         <div className="wrap">
           <span>NETWORKING</span>
@@ -73,11 +61,10 @@ export default function Home() {
           <span>MOBILE DEVELOPMENT</span>
         </div>
       </div>
-
       <section id="networking" className="section wrap network-focus">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / NETWORKS &amp; CONNECTED SYSTEMS</p>
+            <p className="eyebrow">01 / NETWORKS & CONNECTED SYSTEMS</p>
             <h2>Beyond the interface.</h2>
           </div>
           <p>
@@ -86,11 +73,48 @@ export default function Home() {
             that make software work.
           </p>
         </div>
-
         <div className="network-layout">
-          {/* Live Interactive Telemetry Flow Simulator */}
-          <NetworkFlowSimulator />
-
+          <div className="network-topology">
+            <p className="eyebrow">BRIDGEM / COMMUNICATION FLOW</p>
+            <div
+              className="network-flow"
+              aria-label="Sensor data travels through an MQTT broker over WebSockets to a mobile dashboard"
+            >
+              <div>
+                <span aria-hidden="true">◉</span>
+                <strong>Sensor data</strong>
+                <small>Bridge measurements</small>
+              </div>
+              <span className="flow-link" aria-hidden="true">
+                →
+              </span>
+              <div>
+                <span aria-hidden="true">⌘</span>
+                <strong>MQTT broker</strong>
+                <small>Publish / subscribe</small>
+              </div>
+              <span className="flow-link" aria-hidden="true">
+                →
+              </span>
+              <div>
+                <span aria-hidden="true">▥</span>
+                <strong>Mobile dashboard</strong>
+                <small>WebSocket connection</small>
+              </div>
+            </div>
+            <p className="network-caption">
+              Connecting bridge telemetry with a mobile view of load, vibration,
+              and safety status.
+            </p>
+            <a
+              className="text-link"
+              href="https://github.com/udayacgamage/IOT-bridge-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore BridgeM ↗
+            </a>
+          </div>
           <div className="network-interests">
             <div>
               <span className="eyebrow">EXPLORING / NETWORKING</span>
@@ -102,7 +126,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <span className="eyebrow">EXPLORING / SECURITY &amp; OPERATIONS</span>
+              <span className="eyebrow">EXPLORING / SECURITY & OPERATIONS</span>
               <h3>What keeps them dependable</h3>
               <p>
                 I’m developing my understanding of cyber security, Linux, cloud
@@ -112,9 +136,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <Projects />
-
       <section id="about" className="about section wrap">
         <div>
           <p className="eyebrow">03 / ABOUT ME</p>
@@ -144,7 +166,7 @@ export default function Home() {
             </div>
             <div>
               <span>CURRENT INTERESTS</span>
-              <strong>Networks, security &amp; DevOps</strong>
+              <strong>Networks, security & DevOps</strong>
               <p>Always learning, always building.</p>
             </div>
           </div>
@@ -158,7 +180,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
       <section id="skills" className="section wrap">
         <div className="section-heading">
           <div>
@@ -171,10 +192,6 @@ export default function Home() {
             the problem at hand.
           </p>
         </div>
-
-        {/* Live Interactive Skills Explorer */}
-        <InteractiveSkills />
-
         <div className="skill-grid">
           {[
             [
@@ -201,7 +218,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       <section id="contact" className="contact">
         <div className="wrap contact-inner">
           <p className="eyebrow">05 / START A CONVERSATION</p>
@@ -216,23 +232,12 @@ export default function Home() {
               <br />
               or a conversation about networks and technology.
             </p>
-            <div className="contact-cta-group">
-              <CopyEmailButton
-                email="udayacgamage@gmail.com"
-                className="contact-copy-btn"
-              >
-                <span>Copy Email ⧉</span>
-              </CopyEmailButton>
-              <a className="contact-email" href="mailto:udayacgamage@gmail.com">
-                udayacgamage@gmail.com ↗
-              </a>
-            </div>
+            <a className="contact-email" href="mailto:udayacgamage@gmail.com">
+              udayacgamage@gmail.com ↗
+            </a>
           </div>
         </div>
       </section>
-
-      {/* Floating Interactive Terminal */}
-      <InteractiveTerminal />
     </>
   );
 }
