@@ -3,16 +3,15 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV_ITEMS = [
+  { label: "About", href: "#about", id: "about" },
   { label: "Networking", href: "#networking", id: "networking" },
   { label: "Work", href: "#projects", id: "projects" },
-  { label: "About", href: "#about", id: "about" },
   { label: "Skills", href: "#skills", id: "skills" },
   { label: "Contact ↗", href: "#contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -20,12 +19,7 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-          if (totalHeight > 0) {
-            setScrollProgress(Math.min(1, Math.max(0, window.scrollY / totalHeight)));
-          }
-
-          const sections = ["networking", "projects", "about", "skills", "contact"];
+          const sections = ["about", "networking", "projects", "skills", "contact"];
           const trigger = window.scrollY + 160;
           let current = "";
           for (const s of sections) {
@@ -53,13 +47,6 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      {/* Reading Progress Line */}
-      <div
-        className="scroll-progress-line"
-        style={{ transform: `scaleX(${scrollProgress})` }}
-        aria-hidden="true"
-      />
-
       <nav className="wrap nav" aria-label="Main navigation">
         <a className="wordmark" href="#home" onClick={() => setOpen(false)}>
           udaya<span>.</span>

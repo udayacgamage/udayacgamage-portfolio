@@ -27,7 +27,7 @@ export default function Home() {
           </p>
 
           {/* Section Divider: 01 ABOUT */}
-          <div className="section-divider" aria-hidden="true">
+          <div id="about" className="section-divider scroll-mt-28" aria-hidden="true">
             <span className="section-divider-num">01</span>
             <span className="section-divider-title">ABOUT</span>
             <span className="section-divider-line" />
@@ -65,7 +65,6 @@ export default function Home() {
                   sizes="(max-width:760px) 270px, 270px"
                   className="portrait object-cover"
                 />
-                <span className="portrait-marker">UC.</span>
               </div>
             </div>
           </div>
