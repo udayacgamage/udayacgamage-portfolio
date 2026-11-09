@@ -6,74 +6,62 @@ const projects = [
     name: "Cloudpath",
     category: "Networking & IoT",
     type: "NETWORKING & SIMULATION",
+    tagline: "Interactive packet routing & topology simulation",
     description:
       "Interactive visual lessons and simulated network labs covering packet routing, IP subnetting, and cloud infrastructure with local progress tracking.",
     tags: ["Networking", "Routing", "JavaScript", "Simulated labs"],
     repo: "cloud-path",
-    theme: "cloud",
-    mark: "Network Simulation",
-    detail: "PACKET ROUTING & TOPOLOGY LABS",
   },
   {
     name: "BridgeM",
     category: "Networking & IoT",
     additionalCategory: "Mobile applications",
     type: "IOT TELEMETRY DASHBOARD",
+    tagline: "Real-time structural IoT telemetry stream",
     description:
       "A React Native mobile application displaying real-time bridge sensor telemetry (load, vibration, vehicle counts, and alerts) streamed over MQTT and WebSockets.",
     tags: ["MQTT", "WebSockets", "React Native", "Expo"],
     repo: "IOT-bridge-app",
-    theme: "bridge",
-    mark: "Structural IoT Monitor",
-    detail: "REAL-TIME TELEMETRY STREAM",
   },
   {
     name: "UCHAT",
     category: "Mobile applications",
     type: "FLUTTER MESSAGING APP",
+    tagline: "Direct & group real-time messaging",
     description:
       "A cross-platform mobile chat application featuring real-time 1-on-1 and group messaging, typing indicators, read receipts, and media attachments via Firebase.",
     tags: ["Flutter", "Dart", "Firebase", "Riverpod"],
     repo: "UCHAT-app",
-    theme: "chat",
-    mark: "Real-Time Chat",
-    detail: "DIRECT & GROUP MESSAGING",
   },
   {
     name: "Frame",
     category: "Mobile applications",
     type: "REACT NATIVE SOCIAL APP",
+    tagline: "Community post feeds & stories",
     description:
       "A mobile photo-sharing app built with Expo and Supabase, featuring chronological media feeds, user stories, bookmarking, and post interactions.",
     tags: ["React Native", "Expo", "TypeScript", "Supabase"],
     repo: "Frame-social-media-app",
-    theme: "frame",
-    mark: "Media Sharing App",
-    detail: "COMMUNITY POST FEEDS & STORIES",
   },
   {
     name: "LensLoop",
     category: "Web applications",
     type: "EQUIPMENT LOGISTICS",
+    tagline: "Inventory tracking & QR handovers",
     description:
       "A camera equipment rental platform with real-time inventory management, rental period reservations, gear compatibility checks, and QR code handovers.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
     repo: "lens-loop",
-    theme: "lens",
-    mark: "Equipment Logistics",
-    detail: "INVENTORY TRACKING & QR HANDOVERS",
   },
   {
     name: "USJ Pool Management",
     category: "Web applications",
     type: "UNIVERSITY OPERATIONS",
+    tagline: "Lane booking & QR attendance system",
     description:
       "A web management system for the university swimming pool, coordinating lane reservations, coach schedules, and student attendance via QR code verification.",
     tags: ["React", "Node.js", "Express", "MongoDB"],
     repo: "pool-management-system",
-    theme: "pool",
-    mark: "Operations Platform",
-    detail: "BOOKING & QR ATTENDANCE",
   },
 ];
 
@@ -106,6 +94,7 @@ export default function Projects() {
           All repositories ↗
         </a>
       </div>
+
       <div className="filters" aria-label="Filter projects">
         {[
           "All projects",
@@ -124,25 +113,38 @@ export default function Projects() {
           </button>
         ))}
       </div>
+
       <div className="project-grid">
         {visible.map((p) => (
           <article className="project-card" key={p.name}>
-            <div className={`project-art theme-${p.theme}`}>
-              <span className="project-mark">{p.mark}</span>
-              <strong>{p.name}</strong>
-              <small>{p.detail}</small>
+            <div>
+              <div className="project-card-header">
+                <span className="eyebrow">{p.type}</span>
+                <a
+                  href={`https://github.com/udayacgamage/${p.repo}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link-icon"
+                  title={`Open ${p.name} on GitHub`}
+                  aria-label={`Open ${p.name} repository`}
+                >
+                  ↗
+                </a>
+              </div>
+
+              <h3 className="project-title">{p.name}</h3>
+              <p className="project-tagline">{p.tagline}</p>
+              <p className="project-desc">{p.description}</p>
             </div>
-            <div className="project-body">
-              <span className="eyebrow">{p.type}</span>
-              <h3>{p.name}</h3>
-              <p>{p.description}</p>
+
+            <div className="project-card-footer">
               <div className="tags">
                 {p.tags.map((t) => (
                   <span key={t}>{t}</span>
                 ))}
               </div>
               <a
-                className="text-link"
+                className="project-action-link"
                 href={`https://github.com/udayacgamage/${p.repo}`}
                 target="_blank"
                 rel="noopener noreferrer"
