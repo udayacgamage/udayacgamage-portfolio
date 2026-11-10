@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://udayacgamage.dev/sitemap.xml",
+    sitemap: "https://www.udayacgamage.dev/sitemap.xml",
   };
 }
 
