@@ -1,4 +1,5 @@
 import Image from "next/image";
+import portrait from "../../public/profile.webp";
 import Projects from "@/components/Projects";
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
 
           {/* Subtitle: Literary serif italic */}
           <p className="hero-subtitle">
-            Network engineer, IoT telemetry, Software developer
+            Network engineering, connected systems & software.
           </p>
 
           {/* Section Divider: 01 ABOUT */}
@@ -37,7 +38,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-8 space-y-4">
               <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--ink)] dark:text-[#ede9e3]">
-                I&apos;m Udaya. Splits time between network engineering, IoT telemetry,
+                I&apos;m Udaya. I work across network engineering, IoT telemetry,
                 and software development. I like tools that are simple, ownable, and well-made.
               </p>
               <p className="text-base leading-relaxed text-[var(--muted)] dark:text-[#8e887f]">
@@ -58,10 +59,11 @@ export default function Home() {
             <div className="md:col-span-4 flex justify-start md:justify-end">
               <div className="portrait-frame w-full max-w-[270px] aspect-[4/5] relative rounded-lg overflow-hidden border border-[var(--line)] dark:border-[#262320]">
                 <Image
-                  src="/profile.jpg"
+                  src={portrait}
                   alt="Udaya Chathuranga"
                   fill
                   priority
+                  unoptimized
                   sizes="(max-width:760px) 270px, 270px"
                   className="portrait object-cover"
                 />

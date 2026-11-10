@@ -113,11 +113,12 @@ export default function SocialProfileCard({
             <div className="x-avatar-row">
               <div className="x-avatar-frame">
                 <Image
-                  src="/profile.jpg"
+                  src="/profile.webp"
                   alt={name}
                   width={64}
                   height={64}
                   priority
+                  unoptimized
                   className="x-avatar-img"
                 />
               </div>

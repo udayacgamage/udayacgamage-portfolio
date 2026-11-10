@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
-  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
-  --font-serif: var(--font-serif), "Newsreader", Georgia, serif;
-  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), monospace;
 }
 :root {
   --paper: #f7f7f2;
@@ -192,10 +193,7 @@ em,
   display: none;
 }
 .hero {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 80px;
-  align-items: center;
+  display: block;
   padding-block: 85px 70px;
 }
 .eyebrow {
@@ -1948,7 +1946,7 @@ em,
    ========================================================================== */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -2091,4 +2089,62 @@ em,
 .project-action-link:hover {
   color: var(--accent);
   transform: translateX(4px);
+}
+
+/* Shared finishing rules for the current editorial layout. */
+.wrap { max-width: 1120px; }
+body::before { display: none; }
+.hero { padding-block: 72px 64px; }
+.hero h1.hero-name {
+  font-size: clamp(2.75rem, 6.4vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 24px 0 16px;
+}
+.hero-subtitle { max-width: 760px; }
+.hero .actions { margin-top: 12px; }
+.hero .portrait-frame { box-shadow: none; border-radius: 12px; aspect-ratio: 4 / 5; }
+.hero .portrait { filter: none; }
+.section { padding-block: 56px; }
+.section > .section-divider { margin-top: 0; }
+.section-heading { gap: 24px; }
+.section-heading h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.2; }
+.section-divider { font-size: 11px; letter-spacing: .12em; }
+.network-layout { gap: 32px; }
+.network-topology { border-radius: 12px; }
+.project-card { padding: 28px; box-shadow: none; }
+.project-title { display: block; }
+.project-desc { font-size: 14px; line-height: 1.8; }
+.project-card-header .eyebrow { font-size: 9px; letter-spacing: .1em; }
+.project-link-icon { flex-shrink: 0; }
+.tags { flex-wrap: wrap; }
+.filters { flex-wrap: wrap; }
+.filters button { min-height: 40px; }
+.contact { padding-top: 36px; }
+.contact .section-divider { margin: 0; }
+.contact .section-divider-title { color: #f3f6e9; }
+.contact .section-divider-line { background: #536357; }
+.contact .contact-bottom p { color: #c3cdbf; }
+.contact-email { overflow-wrap: anywhere; }
+.footer-surprise-hint { display: none; }
+@media (max-width: 760px) {
+  .wrap { width: calc(100% - 40px); }
+  .hero { padding-block: 40px; }
+  .hero-status-row { font-size: 9px; letter-spacing: .1em; }
+  .hero .portrait-frame { max-width: 320px; }
+  .section { padding-block: 40px; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .project-grid { grid-template-columns: minmax(0, 1fr); }
+  .project-card { padding: 24px; }
+  .network-layout { grid-template-columns: minmax(0, 1fr); }
+  .network-topology { padding: 20px; }
+  .nav-right { gap: 12px; }
+  .contact-bottom { align-items: flex-start; flex-direction: column; }
+  .contact-inner { padding-block: 32px 48px; }
+  .footer { gap: 24px; align-items: flex-start; flex-direction: column; }
+  .footer .footer-links { flex-wrap: wrap; gap: 20px; }
+}
+@media (max-width: 380px) {
+  .network-flow { flex-direction: column; }
+  .flow-link { margin: 0; transform: rotate(90deg); animation: none; }
 }

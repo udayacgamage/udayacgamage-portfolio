@@ -6,20 +6,20 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
 const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-serif",
+  variable: "--font-newsreader",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
