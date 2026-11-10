@@ -1,6 +1,7 @@
 import Image from "next/image";
 import portrait from "../../public/profile.webp";
 import Projects from "@/components/Projects";
+import BackgroundDetails from "@/components/BackgroundDetails";
 
 export default function Home() {
   return (
@@ -42,9 +43,10 @@ export default function Home() {
                 and software development. I like tools that are simple, ownable, and well-made.
               </p>
               <p className="text-base leading-relaxed text-[var(--muted)] dark:text-[#8e887f]">
-                I’m an Information and Communication Technology undergraduate at the
-                University of Sri Jayewardenepura. My focus is on communication protocols,
-                sensor telemetry pipelines, and mobile apps built with React Native and Flutter.
+                I’m a BICT (Honours) undergraduate specializing in Network Technology at the
+                University of Sri Jayewardenepura, with a current GPA of 3.87/4.00.
+                As an AWS Certified Cloud Practitioner, I’m interested in connecting
+                network infrastructure, cloud services, and practical software.
               </p>
               <div className="actions pt-4">
                 <a className="button" href="#projects">
@@ -53,6 +55,7 @@ export default function Home() {
                 <a className="text-link" href="mailto:udayacgamage@gmail.com">
                   Email Me ↗
                 </a>
+                <a className="text-link" href="#education">Education &amp; credentials ↓</a>
               </div>
             </div>
 
@@ -153,20 +156,20 @@ export default function Home() {
           <div className="network-interests">
             <div>
               <span className="eyebrow">ROUTING &amp; SIMULATION</span>
-              <h3>Interactive network labs</h3>
+              <h3>Enterprise network design labs</h3>
               <p>
-                Developing Cloudpath to help students visualize packet routing,
-                CIDR subnetting, and ARP resolution through in-browser simulated
-                labs.
+                Designed a four-floor hierarchical network in Cisco Packet Tracer
+                with OSPF routing, 24 VLANs, centralized DHCP, SSH access, and
+                port-security hardening as part of networking coursework.
               </p>
             </div>
             <div>
               <span className="eyebrow">SYSTEMS &amp; SECURITY</span>
               <h3>Linux &amp; infrastructure</h3>
               <p>
-                Working with Linux server environments, Docker containerization,
-                and transport security (TLS) for resilient client-server
-                communication.
+                Working with Linux administration, shell scripting, and cloud
+                fundamentals. Academic security work includes a literature study
+                on machine-learning-based intrusion detection systems and CTF challenges.
               </p>
             </div>
           </div>
@@ -209,6 +212,8 @@ export default function Home() {
               <span>Python &amp; Linux</span>
               <span>MQTT &amp; WebSockets</span>
               <span>TCP/IP &amp; Wireshark</span>
+              <span>Cisco IOS &amp; Packet Tracer</span>
+              <span>OSPF, VLANs &amp; STP</span>
               <span>Docker &amp; Containers</span>
               <span>React Native &amp; Flutter</span>
               <span>Next.js &amp; Node.js</span>
@@ -224,7 +229,8 @@ export default function Home() {
                 <span className="eyebrow">01 /</span>
                 <h3>Networking &amp; Infrastructure</h3>
                 <p>
-                  MQTT, WebSockets, TCP/IP, Wireshark, Linux administration, Docker, and AWS fundamentals.
+                  Cisco IOS, Packet Tracer, OSPF, VLANs, STP, NAT, DHCP, ACLs,
+                  TCP/IP, Wireshark, MQTT, and wireless networking (IEEE 802.11).
                 </p>
               </div>
               <div className="skill">
@@ -234,25 +240,33 @@ export default function Home() {
                   Flutter, Dart, React Native, Expo, TypeScript, and Firebase for real-time applications.
                 </p>
               </div>
-              <div className="skill sm:col-span-2">
+              <div className="skill">
                 <span className="eyebrow">03 /</span>
                 <h3>Web Systems &amp; Databases</h3>
                 <p>
                   Next.js, React, Node.js, Express, PostgreSQL, MongoDB, Prisma ORM, Git, and RESTful APIs.
                 </p>
               </div>
+              <div className="skill">
+                <span className="eyebrow">04 /</span>
+                <h3>Cloud, Systems &amp; Security</h3>
+                <p>AWS, Linux administration, shell scripting, Docker, Git/GitHub,
+                  CI/CD foundations, VPNs, cybersecurity fundamentals, and beginner-level Nmap.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <BackgroundDetails />
+
       {/* ====================================================================
-          05 CONTACT
+          06 CONTACT
           ==================================================================== */}
       <section id="contact" className="contact">
         <div className="wrap">
           <div className="section-divider" aria-hidden="true">
-            <span className="section-divider-num">05</span>
+            <span className="section-divider-num">06</span>
             <span className="section-divider-title">CONTACT</span>
             <span className="section-divider-line" />
           </div>
@@ -261,7 +275,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Get in touch.</h2>
             <div className="contact-bottom">
               <p className="font-serif italic text-lg text-[var(--muted)] dark:text-[#8e887f]">
-                Open to software and network engineering roles, internships,
+                Seeking a network engineering or DevOps internship,
                 <br />
                 and technical collaborations.
               </p>

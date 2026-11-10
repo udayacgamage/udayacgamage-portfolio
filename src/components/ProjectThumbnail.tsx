@@ -2,7 +2,7 @@ type Props = { project: string; name: string };
 
 // Original interface illustrations, not screenshots or live project data.
 export default function ProjectThumbnail({ project, name }: Props) {
-  const mobile = project === "UCHAT-app" || project === "Frame-social-media-app";
+  const mobile = project === "UCHAT-app" || project === "Frame-social-media-app" || project === "Ceylona";
   return (
     <div className={`project-thumbnail thumbnail-${project}`}>
       <svg viewBox="0 0 640 360" role="img" aria-label={`${name} interface concept illustration`}>
@@ -11,6 +11,15 @@ export default function ProjectThumbnail({ project, name }: Props) {
           <text x={mobile ? 230 : 78} y="73" fill="#edf4f5" fontSize="13" fontFamily="sans-serif" fontWeight="600">{name}</text>
           <circle cx={mobile ? 406 : 560} cy="68" r="5" fill="currentColor" />
           <path d={mobile ? "M224 90H416" : "M70 90H570"} stroke="#ffffff18" />
+          {project === "Ceylona" && <>
+            <text x="230" y="115" className="thumbnail-label">YOUR SRI LANKA JOURNEY</text>
+            <rect x="228" y="133" width="184" height="135" rx="8" fill="#25473e" />
+            <path d="M228 170L412 220 M260 133L300 268 M228 240L412 155 M360 133L345 268" stroke="#ffffff15" strokeWidth="7" />
+            <path d="M260 235Q355 230 318 186T378 155" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="5 5" />
+            {[[260,235],[318,186],[378,155]].map(([x,y]) => <g key={x}><circle cx={x} cy={y} r="9" fill="currentColor" /><circle cx={x} cy={y} r="3" fill="#141e25" /></g>)}
+            <rect x="228" y="282" width="184" height="35" rx="8" fill="currentColor" opacity=".85" />
+            <text x="252" y="304" fill="#141e25" fontSize="10" fontFamily="sans-serif">PLAN YOUR ITINERARY ↗</text>
+          </>}
           {project === "cloud-path" && <>
             <text x="80" y="119" className="thumbnail-label">NETWORK TOPOLOGY</text>
             <path d="M160 204L320 151L478 204L320 272Z M160 204H478 M320 151V272" stroke="currentColor" strokeOpacity=".45" strokeWidth="2" fill="none" />

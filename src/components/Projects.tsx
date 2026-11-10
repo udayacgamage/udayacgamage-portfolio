@@ -10,8 +10,8 @@ const projects = [
     type: "NETWORKING & SIMULATION",
     tagline: "Interactive packet routing & topology simulation",
     description:
-      "Interactive visual lessons and simulated network labs covering packet routing, IP subnetting, and cloud infrastructure with local progress tracking.",
-    tags: ["Networking", "Routing", "JavaScript", "Simulated labs"],
+      "A self-paced cloud learning platform with 56 visual lessons, interactive models, and guided terminal-style labs. Includes local progress tracking, JSON backup and restore, and automated Node.js and Playwright tests.",
+    tags: ["JavaScript", "Node.js", "Playwright", "56 lessons"],
     repo: "cloud-path",
   },
   {
@@ -24,6 +24,16 @@ const projects = [
       "A React Native mobile application displaying real-time bridge sensor telemetry (load, vibration, vehicle counts, and alerts) streamed over MQTT and WebSockets.",
     tags: ["MQTT", "WebSockets", "React Native", "Expo"],
     repo: "IOT-bridge-app",
+  },
+  {
+    name: "Ceylona",
+    category: "Mobile applications",
+    type: "AI TOURISM PLATFORM · IN DEVELOPMENT",
+    tagline: "Discover Sri Lanka, plan a personal itinerary",
+    description:
+      "Building a cross-platform tourism app with AI itinerary planning and map-based discovery, using Flutter, the Gemini API, Google Maps, Firebase, and Node.js Cloud Functions.",
+    tags: ["Flutter", "Firebase", "Gemini API", "Google Maps"],
+    repo: "Ceylona",
   },
   {
     name: "UCHAT",
