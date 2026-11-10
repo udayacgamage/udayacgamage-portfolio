@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import ProjectThumbnail from "@/components/ProjectThumbnail";
 
 const projects = [
   {
@@ -67,6 +69,7 @@ const projects = [
 
 export default function Projects() {
   const [filter, setFilter] = useState("All projects");
+  const reduceMotion = useReducedMotion();
   const visible = projects.filter(
     (p) =>
       filter === "All projects" ||
@@ -114,9 +117,21 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="project-grid">
+      <p className="sr-only" role="status">{visible.length} projects shown</p>
+      <motion.div layout={!reduceMotion} className="project-grid">
+        <AnimatePresence initial={false} mode="popLayout">
         {visible.map((p) => (
-          <article className="project-card" key={p.name}>
+          <motion.article
+            className="project-card project-card-visual" key={p.name}
+            layout={!reduceMotion}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: reduceMotion ? 1 : 0.98 }}
+            transition={{ duration: reduceMotion ? 0 : 0.32, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <a className="project-thumbnail-link" href={`https://github.com/udayacgamage/${p.repo}`} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${p.name} on GitHub`}>
+              <ProjectThumbnail project={p.repo} name={p.name} />
+            </a>
             <div>
               <div className="project-card-header">
                 <span className="eyebrow">{p.type}</span>
@@ -152,9 +167,10 @@ export default function Projects() {
                 View Repository ↗
               </a>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
